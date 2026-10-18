@@ -104,7 +104,8 @@ for (const book of listBooks()) {
   const d = book.data;
   const cover = coverPath(book.slug);
   const needCover = !fs.existsSync(cover) || d.refresh_cover === true;
-  const needMeta = ['pages', 'year', 'publisher', 'genre'].some(k => d[k] === undefined || d[k] === '');
+  // look details up once per book; after that only a missing cover triggers another lookup
+  const needMeta = !d.looked_up && ['pages', 'year', 'publisher', 'genre'].some(k => d[k] === undefined || d[k] === '');
   if (!needCover && !needMeta) continue;
   if (!d.title) { console.warn(`${book.slug}: no title, skipping`); continue; }
   console.log(`\n${book.slug}: looking up "${d.title}"${d.author ? ` by ${d.author}` : ''}`);
@@ -127,6 +128,7 @@ for (const book of listBooks()) {
       console.warn(`  no usable cover found. Add one by hand as covers/${book.slug}.webp`);
     }
   }
+  d.looked_up = true;
   writeBook(book);
   changed++;
 }
