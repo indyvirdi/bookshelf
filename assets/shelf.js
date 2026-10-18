@@ -79,11 +79,12 @@ function fill(b) {
   $('dAuthor').textContent = b.author;
   $('dTitle').textContent = b.title;
   const r = b.rating || 0;
-  const status = b.status === 'reading'
-    ? `<span class="chip reading">Reading now</span><span>Started ${fmtDate(b.date)}</span>`
-    : `<span class="chip">Read</span><span>Finished ${fmtDate(b.date)}</span>`;
+  const when = b.date ? `<span>${b.status === 'reading' ? 'Started' : 'Finished'} ${fmtDate(b.date)}</span>` : '';
+  const status = (b.status === 'reading' ? `<span class="chip reading">Reading now</span>` : `<span class="chip">Read</span>`) + when;
   $('dMeta').innerHTML = (r ? `<span class="stars" role="img" aria-label="${r} out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;<span style="width:${r / 5 * 100}%">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span><span class="score">${r}/5</span>` : '') + status;
   $('dVerdict').textContent = b.verdict;
+  $('dVerdict').hidden = !b.verdict;                 // books without a review yet just show their details
+  document.querySelector('.panel .rule').hidden = !b.verdict && !b.review.length;
   $('dReview').innerHTML = b.review.map(p => `<p>${esc(p)}</p>`).join('');
   const facts = [['Genre', b.genre], ['Pages', b.pages], ['Published', b.year], ['Publisher', b.publisher], ['Best for', b.bestFor]].filter(f => f[1]);
   $('dPlaceholder').hidden = !b.placeholder;
