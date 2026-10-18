@@ -1,5 +1,5 @@
 ---
-title: Butter
+title: "Butter"
 author: "Asako Yuzuki"
 publisher: "4th Estate"
 draft: true
