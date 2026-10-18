@@ -13,6 +13,8 @@ thickness_cm: 2.5
 best_for: "A slow read at the weekend"
 verdict: "A beautifully made book that treats its subject with real care."
 placeholder: true
+pages: 182
+isbn: "9781860644900"
 ---
 
 The archive photography carries a lot of this book. Each portrait gets room to breathe, and the captions add context without crowding the images.
