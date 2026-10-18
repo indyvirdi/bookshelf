@@ -2,7 +2,7 @@
 title: "The Silk Roads"
 author: "Peter Frankopan"
 status: read
-pages: 128
+pages: 636
 year: 2015
 isbn: "9781408889930"
 cover_source: apple
