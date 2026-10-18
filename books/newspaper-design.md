@@ -4,9 +4,9 @@ author: "Javier Errea (ed.)"
 status: read
 rating: 4.5
 date: 2026-08-30
-genre: Design
+genre: "Design"
 year: 2018
-publisher: Gestalten
+publisher: "Gestalten"
 format: hardback
 height_cm: 30
 thickness_cm: 2.6

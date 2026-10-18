@@ -36,7 +36,8 @@ export function readBook(file) {
   return { file, slug: path.basename(file, '.md'), data, order, body };
 }
 
-const fmt = v => typeof v === 'string' ? (/^[\w.-]+$/.test(v) && !/^(true|false|-?\d+(\.\d+)?)$/.test(v) ? v : JSON.stringify(v)) : String(v);
+// keep plain words (status, format) and dates bare; quote everything else
+const fmt = v => typeof v === 'string' ? (/^([a-z-]+|\d{4}-\d{2}-\d{2})$/.test(v) && !/^(true|false)$/.test(v) ? v : JSON.stringify(v)) : String(v);
 
 export function writeBook(book) {
   const keys = [...book.order, ...Object.keys(book.data).filter(k => !book.order.includes(k))];

@@ -34,7 +34,11 @@ function authorMatch(want, got) {
   const g = norm(Array.isArray(got) ? got.join(' ') : got);
   return surnames.some(s => g.includes(s));
 }
-const isbn13 = ids => (ids || []).map(String).find(i => /^97[89]\d{10}$/.test(i.replace(/-/g, '')));
+// prefer English-language ISBNs (978-0 / 978-1) over translations
+const isbn13 = ids => {
+  const all = (ids || []).map(i => String(i).replace(/-/g, '')).filter(i => /^97[89]\d{10}$/.test(i));
+  return all.find(i => /^978[01]/.test(i)) || all[0];
+};
 
 async function openLibrary(d) {
   const q = new URLSearchParams({ title: d.title, limit: '10', fields: 'key,title,author_name,isbn,cover_i,cover_edition_key,number_of_pages_median,first_publish_year,publisher,subject' });
