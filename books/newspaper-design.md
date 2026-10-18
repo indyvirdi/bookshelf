@@ -13,6 +13,7 @@ thickness_cm: 2.6
 best_for: "Editorial and type nerds"
 verdict: "A rich survey of how great newsrooms design for print."
 placeholder: true
+looked_up: true
 ---
 
 Case studies from papers around the world, with plenty of spreads to study. The essays on structure and hierarchy translate directly to digital work.
