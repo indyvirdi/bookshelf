@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indy's Bookshelf</title>
+<meta name="description" content="Books I'm reading and have read, with short reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/shelf.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>On the <em>shelf</em></h1>
+    <p class="sub"><b id="count">0</b> books read and reading</p>
+  </header>
+  <div class="scene" id="scene"><div class="layer shelf"><div class="stage" id="stage"></div></div><div class="layer lift" aria-hidden="true"><div class="stage" id="stage2"></div></div></div>
+  <p class="hint"><span class="mouse">Hover to tilt, click to open</span><span class="touch">Drag across the books, tap one to open</span></p>
+</div>
+
+<button class="back" id="back" type="button" aria-label="Back to the shelf">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Shelf
+</button>
+<div class="nav">
+  <button id="prev" type="button" aria-label="Previous book"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+  <span id="pager">1 of 7</span>
+  <button id="next" type="button" aria-label="Next book"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+</div>
+<section class="detail" id="detail" aria-hidden="true">
+  <div class="detail-inner">
+    <div class="slot" id="slot"><img id="slotImg" alt=""></div>
+    <article class="panel" id="panel">
+      <p class="byline"><i></i><span id="dAuthor"></span></p>
+      <h2 id="dTitle"></h2>
+      <div class="meta" id="dMeta"></div>
+      <p class="verdict" id="dVerdict"></p>
+      <hr class="rule">
+      <div class="review" id="dReview"></div>
+      <dl class="facts" id="dFacts"></dl>
+      <span class="placeholder" id="dPlaceholder">Placeholder review</span>
+    </article>
+  </div>
+</section>
+<script src="assets/shelf.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "bookshelf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "enrich": "node scripts/enrich.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "npx --yes serve ."
+  },
+  "dependencies": {
+    "sharp": "0.33.5"
+  }
+}
